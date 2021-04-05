@@ -24,37 +24,37 @@ class Social {
 class TopBar extends StatelessWidget {
   final socials = <Social>[
     Social(
-      index: 1,
+      index: 0,
       title: 'Github',
       icon: FontAwesomeIcons.github,
       url: 'https://github.com/yusubx',
     ),
     Social(
-      index: 2,
+      index: 1,
       title: 'StackOverflow',
       icon: FontAwesomeIcons.stackOverflow,
       url: 'https://stackoverflow.com/users/10996870/kanan-yusubov',
     ),
     Social(
-      index: 3,
+      index: 2,
       title: 'LinkedIn',
       icon: FontAwesomeIcons.linkedin,
       url: 'https://www.linkedin.com/in/kananyusubov/',
     ),
     Social(
-      index: 4,
+      index: 3,
       title: 'Medium',
       icon: FontAwesomeIcons.medium,
       url: 'https://medium.com/@kanan-yusubov',
     ),
     Social(
-      index: 5,
+      index: 4,
       title: 'Facebook',
       icon: FontAwesomeIcons.facebook,
       url: 'https://www.facebook.com/groups/azfluttercommunity',
     ),
     Social(
-      index: 6,
+      index: 5,
       title: 'Youtube',
       icon: FontAwesomeIcons.youtube,
       url: 'https://www.youtube.com/channel/UC9j42eR0UxQTwKHY_j71i4g',
@@ -84,6 +84,7 @@ class TopBar extends StatelessWidget {
                           .toList()
                     else
                       PopupMenuButton<int>(
+                        padding: EdgeInsets.zero,
                         itemBuilder: (ctx) {
                           return socials
                               .map(
