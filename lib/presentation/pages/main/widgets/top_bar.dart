@@ -9,11 +9,13 @@ import 'social_button.dart';
 
 class Social {
   Social({
+    required this.index,
     required this.title,
     required this.url,
     required this.icon,
   });
 
+  final int index;
   final String title;
   final String url;
   final IconData icon;
@@ -22,31 +24,37 @@ class Social {
 class TopBar extends StatelessWidget {
   final socials = <Social>[
     Social(
+      index: 1,
       title: 'Github',
       icon: FontAwesomeIcons.github,
       url: 'https://github.com/yusubx',
     ),
     Social(
+      index: 2,
       title: 'StackOverflow',
       icon: FontAwesomeIcons.stackOverflow,
       url: 'https://stackoverflow.com/users/10996870/kanan-yusubov',
     ),
     Social(
+      index: 3,
       title: 'LinkedIn',
       icon: FontAwesomeIcons.linkedin,
       url: 'https://www.linkedin.com/in/kananyusubov/',
     ),
     Social(
+      index: 4,
       title: 'Medium',
       icon: FontAwesomeIcons.medium,
       url: 'https://medium.com/@kanan-yusubov',
     ),
     Social(
+      index: 5,
       title: 'Facebook',
       icon: FontAwesomeIcons.facebook,
       url: 'https://www.facebook.com/groups/azfluttercommunity',
     ),
     Social(
+      index: 6,
       title: 'Youtube',
       icon: FontAwesomeIcons.youtube,
       url: 'https://www.youtube.com/channel/UC9j42eR0UxQTwKHY_j71i4g',
@@ -81,7 +89,7 @@ class TopBar extends StatelessWidget {
                               .map(
                                 (social) => PopupMenuItem(
                                   child: Text(social.title),
-                                  value: 1,
+                                  value: social.index,
                                 ),
                               )
                               .toList();

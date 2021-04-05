@@ -26,10 +26,6 @@ class Avatar extends StatelessWidget {
               'Kanan Yusubov',
               style: Theme.of(context).textTheme.headline6,
             ),
-            Text(
-              'Azerbaijan Flutter Users Community',
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
           ],
         ),
       ],
