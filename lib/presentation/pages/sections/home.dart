@@ -21,17 +21,35 @@ class Home extends StatelessWidget {
             children: [
               SizedBox(height: deviceInfo.size.height * 0.20),
               Text(
-                'Junior Flutter Developer\nfrom Azerbaijan',
+                'Mobile Development Engineer\nFlutter Enthusiast',
                 style: Theme.of(context)
                     .textTheme
                     .headline2
                     ?.copyWith(fontSize: fontSize),
               ),
               const SizedBox(height: 30),
-              Text(
-                'I am Flutter Developer with experience more than a year & '
-                'Founder of Azerbaijan Flutter Users Community.',
+              RichText(
+                text: TextSpan(
+                  text: 'I am Flutter Developer with experience '
+                      'more than a year & Founder of ',
+                  style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                  children: [
+                    TextSpan(
+                      text: 'Azerbaijan Flutter Users Community.',
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
+                ),
               ),
+              // Text(
+              //   'I am Flutter Developer with experience more than a year & '
+              //   'Founder of Azerbaijan Flutter Users Community.',
+              // ),
             ],
           );
         },
