@@ -22,11 +22,9 @@ class DeviceInfo {
 
 class ResponsiveX extends StatelessWidget {
   ResponsiveX({
-    required this.child,
     required this.builder,
   });
 
-  final Widget child;
   final ResponsiveBuilder builder;
 
   @override
