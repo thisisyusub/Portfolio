@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
+import '../sections/about.dart';
+import '../sections/contact.dart';
 import '../sections/home.dart';
-import '../sections/soon.dart';
+import '../sections/work.dart';
 import 'widgets/menu_bar.dart';
 import 'widgets/top_bar.dart';
 
@@ -12,14 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final scrollController = ScrollController();
-  final sizeKey = GlobalKey();
-
-  double getSectionHeight() {
-    final renderBox = sizeKey.currentContext?.findRenderObject() as RenderBox;
-    final size = renderBox.size;
-    return size.height;
-  }
+  final controller = AutoScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +28,33 @@ class _MainPageState extends State<MainPage> {
             children: [
               TopBar(),
               Expanded(
-                child: CustomScrollView(
-                  key: sizeKey,
-                  controller: scrollController,
-                  slivers: [
-                    SliverFillRemaining(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  controller: controller,
+                  children: [
+                    AutoScrollTag(
+                      key: ValueKey(0),
+                      controller: controller,
+                      index: 0,
                       child: Home(),
                     ),
-                    SliverFillRemaining(
-                      child: Soon(),
+                    AutoScrollTag(
+                      key: ValueKey(1),
+                      controller: controller,
+                      index: 1,
+                      child: About(),
                     ),
-                    SliverFillRemaining(
-                      child: Soon(),
+                    AutoScrollTag(
+                      key: ValueKey(2),
+                      controller: controller,
+                      index: 2,
+                      child: Work(),
                     ),
-                    SliverFillRemaining(
-                      child: Soon(),
+                    AutoScrollTag(
+                      key: ValueKey(3),
+                      controller: controller,
+                      index: 3,
+                      child: Contact(),
                     ),
                   ],
                 ),
@@ -60,12 +68,10 @@ class _MainPageState extends State<MainPage> {
   }
 
   void animateToSection(int index) {
-    final sectionHeight = getSectionHeight();
-
-    scrollController.animateTo(
-      index * sectionHeight,
-      duration: Duration(milliseconds: 700),
-      curve: Curves.ease,
+    controller.scrollToIndex(
+      index,
+      preferPosition: AutoScrollPosition.begin,
+      duration: Duration(milliseconds: 800),
     );
   }
 }
