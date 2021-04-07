@@ -21,16 +21,29 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TopBar(),
-              Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: 16.0,
+              ),
+              child: TopBar(),
+            ),
+            Expanded(
+              child: Scrollbar(
+                controller: controller,
                 child: ListView(
-                  scrollDirection: Axis.vertical,
                   controller: controller,
+                  scrollDirection: Axis.vertical,
+                  physics: BouncingScrollPhysics(),
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    right: 16.0,
+                    top: 16.0,
+                  ),
                   children: [
                     AutoScrollTag(
                       key: ValueKey(0),
@@ -59,9 +72,16 @@ class _MainPageState extends State<MainPage> {
                   ],
                 ),
               ),
-              MenuBar(animateToSection),
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: 16.0,
+              ),
+              child: MenuBar(animateToSection),
+            ),
+          ],
         ),
       ),
     );
