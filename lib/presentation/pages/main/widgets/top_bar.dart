@@ -85,6 +85,10 @@ class TopBar extends StatelessWidget {
                     else
                       PopupMenuButton<int>(
                         padding: EdgeInsets.zero,
+                        icon: Icon(
+                          Icons.more_vert_rounded,
+                          color: Theme.of(context).primaryColor,
+                        ),
                         itemBuilder: (ctx) {
                           return socials
                               .map(

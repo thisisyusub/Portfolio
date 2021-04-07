@@ -5,8 +5,7 @@ import '../../responsive_x.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ResponsiveX(
+    return  ResponsiveX(
         builder: (context, deviceInfo) {
           double fontSize = 56.0;
 
@@ -53,7 +52,6 @@ class Home extends StatelessWidget {
             ],
           );
         },
-      ),
     );
   }
 }

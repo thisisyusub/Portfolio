@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../responsive_x.dart';
 import 'menu_button.dart';
 
 class MenuBar extends StatelessWidget {
+  MenuBar(this.animateTo);
+
+  final void Function(int index) animateTo;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,19 +18,31 @@ class MenuBar extends StatelessWidget {
             color: Theme.of(context).primaryColor.withOpacity(0.5),
             thickness: 0.2,
           ),
-          ResponsiveX(builder: (context, deviceInfo) {
-            return Row(
-              mainAxisAlignment: deviceInfo.deviceType == DeviceType.mobile
-                  ? MainAxisAlignment.spaceAround
-                  : MainAxisAlignment.spaceBetween,
-              children: [
-                MenuButton('Home', Icons.home_outlined),
-                MenuButton('About', Icons.person_outline_rounded),
-                MenuButton('Work', Icons.work_outline_rounded),
-                MenuButton('Contact', CupertinoIcons.envelope),
-              ],
-            );
-          }),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              MenuButton(
+                'Home',
+                Icons.home_outlined,
+                () => animateTo(0),
+              ),
+              MenuButton(
+                'About',
+                Icons.person_outline_rounded,
+                () => animateTo(1),
+              ),
+              MenuButton(
+                'Work',
+                Icons.work_outline_rounded,
+                () => animateTo(2),
+              ),
+              MenuButton(
+                'Contact',
+                CupertinoIcons.envelope,
+                () => animateTo(3),
+              ),
+            ],
+          ),
         ],
       ),
     );
