@@ -48,8 +48,6 @@ class PortfolioRouterDelegate extends RouterDelegate<PortfolioPath>
 
   @override
   PortfolioPath? get currentConfiguration {
-    print('setting new path: $routeNotifier');
-
     if (routeNotifier.show404) return PortfolioPath.notFound();
 
     if (routeNotifier.showWorkPage)
@@ -97,8 +95,6 @@ class PortfolioRouterDelegate extends RouterDelegate<PortfolioPath>
 
   @override
   Future<void> setNewRoutePath(PortfolioPath path) async {
-    print('setting new path: $path');
-
     switch (path.page) {
       case Pages.notFound:
         routeNotifier.showWorkPage = false;

@@ -18,8 +18,6 @@ class PortfolioRouteInformationParser
     if (uri.pathSegments.length == 1) {
       if (uri.pathSegments.first.toLowerCase() == 'work')
         return PortfolioPath.work();
-      else if (uri.pathSegments.first.toLowerCase() == 'home')
-        return PortfolioPath.home();
 
       return PortfolioPath.notFound();
     }
@@ -31,10 +29,8 @@ class PortfolioRouteInformationParser
   @override
   RouteInformation? restoreRouteInformation(PortfolioPath path) {
     switch (path.page) {
-      case Pages.splash:
-        return RouteInformation(location: '/');
       case Pages.home:
-        return RouteInformation(location: '/home');
+        return RouteInformation(location: '/');
       case Pages.work:
         return RouteInformation(location: '/work');
       default:
