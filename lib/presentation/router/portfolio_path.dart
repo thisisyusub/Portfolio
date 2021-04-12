@@ -2,10 +2,6 @@ class PortfolioPath {
   final bool unknown;
   final Pages page;
 
-  PortfolioPath.splash()
-      : unknown = false,
-        page = Pages.splash;
-
   PortfolioPath.home()
       : unknown = false,
         page = Pages.home;
@@ -24,4 +20,4 @@ class PortfolioPath {
   }
 }
 
-enum Pages { splash, home, work, notFound }
+enum Pages { home, work, notFound }
