@@ -35,7 +35,6 @@ class _MenuButtonState extends State<MenuButton> {
           builder: (context, deviceInfo) {
             final screenWidth = deviceInfo.size.width;
             var width = deviceInfo.size.width / 4 - screenWidth * 0.1;
-            ;
             var height = 56.0;
             late var child;
 

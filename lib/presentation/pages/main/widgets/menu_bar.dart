@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../router/portfolio_router_delegate.dart';
 import 'menu_button.dart';
 
 class MenuBar extends StatelessWidget {
@@ -34,7 +36,7 @@ class MenuBar extends StatelessWidget {
               MenuButton(
                 'Work',
                 Icons.work_outline_rounded,
-                () => animateTo(2),
+                Provider.of<PortfolioRouteNotifier>(context).goToWorkPage,
               ),
               MenuButton(
                 'Contact',
