@@ -82,6 +82,7 @@ class _WorkPageState extends State<WorkPage> {
               Expanded(
                 child: PageView(
                   controller: controller,
+                  physics: NeverScrollableScrollPhysics(),
                   children: [
                     ResponsiveMultiChildBuilder(
                       itemBuilder: (_, index) {
