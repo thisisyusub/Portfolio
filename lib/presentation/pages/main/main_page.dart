@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
+import '../../responsive_x.dart';
 import '../../utils/smooth_scroll.dart';
 import '../sections/about.dart';
 import '../sections/contact.dart';
@@ -32,10 +33,9 @@ class _MainPageState extends State<MainPage> {
               ),
               child: TopBar(),
             ),
-            Expanded(
-              child: SmoothScroll(
-                controller: controller,
-                child: CupertinoScrollbar(
+            ResponsiveX(
+              builder: (_, deviceInfo) {
+                final child = CupertinoScrollbar(
                   controller: controller,
                   child: ListView(
                     controller: controller,
@@ -67,8 +67,19 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ],
                   ),
-                ),
-              ),
+                );
+
+                final isMobile = deviceInfo.deviceType == DeviceType.mobile;
+
+                return Expanded(
+                  child: isMobile
+                      ? child
+                      : SmoothScroll(
+                          controller: controller,
+                          child: child,
+                        ),
+                );
+              },
             ),
             Padding(
               padding: const EdgeInsets.only(
