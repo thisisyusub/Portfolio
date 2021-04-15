@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
+import '../../utils/smooth_scroll.dart';
 import '../sections/about.dart';
 import '../sections/contact.dart';
 import '../sections/home.dart';
-import '../sections/work.dart';
 import 'widgets/menu_bar.dart';
 import 'widgets/top_bar.dart';
 
@@ -33,43 +33,40 @@ class _MainPageState extends State<MainPage> {
               child: TopBar(),
             ),
             Expanded(
-              child: Scrollbar(
+              child: SmoothScroll(
                 controller: controller,
-                child: ListView(
+                child: CupertinoScrollbar(
                   controller: controller,
-                  scrollDirection: Axis.vertical,
-                  physics: BouncingScrollPhysics(),
-                  padding: const EdgeInsets.only(
-                    left: 16.0,
-                    right: 16.0,
-                    top: 16.0,
+                  child: ListView(
+                    controller: controller,
+                    scrollDirection: Axis.vertical,
+                    padding: const EdgeInsets.only(
+                      left: 16.0,
+                      right: 16.0,
+                      top: 16.0,
+                    ),
+                    physics: NeverScrollableScrollPhysics(),
+                    children: [
+                      AutoScrollTag(
+                        key: ValueKey(0),
+                        controller: controller,
+                        index: 0,
+                        child: Home(),
+                      ),
+                      AutoScrollTag(
+                        key: ValueKey(1),
+                        controller: controller,
+                        index: 1,
+                        child: About(),
+                      ),
+                      AutoScrollTag(
+                        key: ValueKey(2),
+                        controller: controller,
+                        index: 2,
+                        child: Contact(),
+                      ),
+                    ],
                   ),
-                  children: [
-                    AutoScrollTag(
-                      key: ValueKey(0),
-                      controller: controller,
-                      index: 0,
-                      child: Home(),
-                    ),
-                    AutoScrollTag(
-                      key: ValueKey(1),
-                      controller: controller,
-                      index: 1,
-                      child: About(),
-                    ),
-                    AutoScrollTag(
-                      key: ValueKey(2),
-                      controller: controller,
-                      index: 2,
-                      child: Work(),
-                    ),
-                    AutoScrollTag(
-                      key: ValueKey(3),
-                      controller: controller,
-                      index: 3,
-                      child: Contact(),
-                    ),
-                  ],
                 ),
               ),
             ),

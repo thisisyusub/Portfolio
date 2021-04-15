@@ -41,7 +41,7 @@ class MenuBar extends StatelessWidget {
               MenuButton(
                 'Contact',
                 CupertinoIcons.envelope,
-                () => animateTo(3),
+                () => animateTo(2),
               ),
             ],
           ),
