@@ -6,10 +6,12 @@ import '../../../utils/smooth_scroll.dart';
 
 class ResponsiveMultiChildBuilder extends StatelessWidget {
   final IndexedWidgetBuilder itemBuilder;
+  final IndexedWidgetBuilder? mobileItemBuilder;
   final int itemCount;
 
   ResponsiveMultiChildBuilder({
     required this.itemBuilder,
+    this.mobileItemBuilder,
     required this.itemCount,
   });
 
@@ -37,7 +39,9 @@ class ResponsiveMultiChildBuilder extends StatelessWidget {
               minWidth: double.infinity,
               minHeight: deviceInfo.size.height / 2,
             ),
-            child: itemBuilder(ctx, i),
+            child: mobileItemBuilder != null
+                ? mobileItemBuilder?.call(ctx, i)
+                : itemBuilder(ctx, i),
           ),
           itemCount: itemCount,
         );
@@ -75,7 +79,10 @@ class ResponsiveMultiChildBuilder extends StatelessWidget {
         );
       }
 
-      return multiElementBuilder;
+      return CupertinoScrollbar(
+        controller: _controller,
+        child: multiElementBuilder,
+      );
     });
   }
 }

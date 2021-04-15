@@ -1,7 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/hovered_item.dart';
 import 'widgets/responsive_multi_item_builder.dart';
+
+class Work {
+  Work({
+    required this.title,
+    required this.imagePath,
+  });
+
+  final String imagePath;
+  final String title;
+}
 
 class WorkPage extends StatefulWidget {
   @override
@@ -13,13 +24,22 @@ class _WorkPageState extends State<WorkPage> {
   int selection = 0;
 
   final works = [
-    'Work 1',
-    'Work 2',
-    'Work 3',
-    'Work 4',
-    'Work 5',
-    'Work 6',
-    'Work 7',
+    Work(
+      imagePath: 'lib/assets/bmi_calculator.png',
+      title: 'BMI Calculator',
+    ),
+    Work(
+      imagePath: 'lib/assets/corona_tracker.png',
+      title: 'Corona Tracker',
+    ),
+    Work(
+      imagePath: 'lib/assets/i_read_quran.png',
+      title: 'Mən Quran oxuyuram',
+    ),
+    Work(
+      imagePath: 'lib/assets/travelx.png',
+      title: 'TravelX',
+    ),
   ];
 
   final blog = [
@@ -52,6 +72,8 @@ class _WorkPageState extends State<WorkPage> {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -82,23 +104,15 @@ class _WorkPageState extends State<WorkPage> {
               Expanded(
                 child: PageView(
                   controller: controller,
-                  physics: NeverScrollableScrollPhysics(),
                   children: [
                     ResponsiveMultiChildBuilder(
                       itemBuilder: (_, index) {
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 4.0),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor.withOpacity(
-                                  0.3,
-                                ),
-                            borderRadius: BorderRadius.circular(4.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              works[index],
-                            ),
-                          ),
+                        final work = works[index];
+
+                        return HoveredWorkItem(
+                          title: work.title,
+                          imagePath: work.imagePath,
+                          externalUrl: work.imagePath,
                         );
                       },
                       itemCount: works.length,
