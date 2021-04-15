@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../responsive_x.dart';
+import '../../utils/smooth_scroll.dart';
 import '../sections/about.dart';
 import '../sections/contact.dart';
 import '../sections/home.dart';
@@ -34,7 +35,9 @@ class _MainPageState extends State<MainPage> {
             ),
             ResponsiveX(
               builder: (_, deviceInfo) {
-                final child = Scrollbar(
+                final isMobile = deviceInfo.deviceType == DeviceType.mobile;
+
+                final child = CupertinoScrollbar(
                   controller: controller,
                   child: ListView(
                     controller: controller,
@@ -44,7 +47,9 @@ class _MainPageState extends State<MainPage> {
                       right: 16.0,
                       top: 16.0,
                     ),
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: isMobile
+                        ? AlwaysScrollableScrollPhysics()
+                        : NeverScrollableScrollPhysics(),
                     children: [
                       AutoScrollTag(
                         key: ValueKey(0),
@@ -68,10 +73,13 @@ class _MainPageState extends State<MainPage> {
                   ),
                 );
 
-                final isMobile = deviceInfo.deviceType == DeviceType.mobile;
-
                 return Expanded(
-                  child: child,
+                  child: isMobile
+                      ? child
+                      : SmoothScroll(
+                          controller: controller,
+                          child: child,
+                        ),
                 );
               },
             ),

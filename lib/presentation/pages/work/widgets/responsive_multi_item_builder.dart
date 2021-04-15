@@ -22,10 +22,11 @@ class ResponsiveMultiChildBuilder extends StatelessWidget {
 
       Widget multiElementBuilder;
 
-      if (deviceType == DeviceType.mobile) {
+      final isMobile = deviceType == DeviceType.mobile;
+
+      if (isMobile) {
         multiElementBuilder = ListView.builder(
           controller: _controller,
-          physics: NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.only(
             left: 16.0,
             right: 16.0,
@@ -64,13 +65,17 @@ class ResponsiveMultiChildBuilder extends StatelessWidget {
         );
       }
 
-      return SmoothScroll(
-        controller: _controller,
-        child: Scrollbar(
+      if (!isMobile) {
+        multiElementBuilder = SmoothScroll(
           controller: _controller,
-          child: multiElementBuilder,
-        ),
-      );
+          child: CupertinoScrollbar(
+            controller: _controller,
+            child: multiElementBuilder,
+          ),
+        );
+      }
+
+      return multiElementBuilder;
     });
   }
 }
