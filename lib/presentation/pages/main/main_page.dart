@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
             ),
             ResponsiveX(
               builder: (_, deviceInfo) {
-                final child = CupertinoScrollbar(
+                final child = Scrollbar(
                   controller: controller,
                   child: ListView(
                     controller: controller,

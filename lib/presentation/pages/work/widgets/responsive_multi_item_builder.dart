@@ -66,7 +66,7 @@ class ResponsiveMultiChildBuilder extends StatelessWidget {
 
       return SmoothScroll(
         controller: _controller,
-        child: CupertinoScrollbar(
+        child: Scrollbar(
           controller: _controller,
           child: multiElementBuilder,
         ),
