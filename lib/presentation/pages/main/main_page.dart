@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:scroll_to_index/scroll_to_index.dart';
 
-import '../../responsive_x.dart';
-import '../../utils/smooth_scroll.dart';
 import '../sections/about.dart';
 import '../sections/contact.dart';
 import '../sections/home.dart';
-import 'widgets/top_bar.dart';
 
 class MainPage extends StatefulWidget {
   @override

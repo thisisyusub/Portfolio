@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/presentation/pages/main/widgets/avatar.dart';
 
 import '../../responsive_x.dart';
+import '../main/widgets/avatar.dart';
 
 class Home extends StatelessWidget {
   @override
