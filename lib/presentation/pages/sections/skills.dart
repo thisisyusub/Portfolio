@@ -56,7 +56,7 @@ class Skills extends StatelessWidget {
               ),
               if (deviceInfo.deviceType == DeviceType.mobile)
                 ..._skills.map((skill) {
-                  return _buildSkillItem(skill, deviceInfo);
+                  return SkillItem(skill: skill, deviceInfo: deviceInfo);
                 }).toList()
               else
                 GridView.builder(
@@ -67,7 +67,10 @@ class Skills extends StatelessWidget {
                   ),
                   shrinkWrap: true,
                   itemBuilder: (_, index) {
-                    return _buildSkillItem(_skills[index], deviceInfo);
+                    return SkillItem(
+                      skill: _skills[index],
+                      deviceInfo: deviceInfo,
+                    );
                   },
                   itemCount: _skills.length,
                 ),
@@ -77,24 +80,59 @@ class Skills extends StatelessWidget {
       },
     );
   }
+}
 
-  Widget _buildSkillItem(
-    Skill skill,
-    DeviceInfo deviceInfo,
-  ) {
+class SkillItem extends StatefulWidget {
+  const SkillItem({
+    Key? key,
+    required this.skill,
+    required this.deviceInfo,
+  }) : super(key: key);
+
+  final Skill skill;
+  final DeviceInfo deviceInfo;
+
+  @override
+  State<SkillItem> createState() => _SkillItemState();
+}
+
+class _SkillItemState extends State<SkillItem>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
+      lowerBound: 0.0,
+      upperBound: widget.skill.value,
+    );
+
+    _animationController.forward();
+
+    _animationController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          skill.title,
+          widget.skill.title,
           style: TextStyle(
-            fontSize: deviceInfo.size.shortestSide * 0.04,
+            fontSize: widget.deviceInfo.size.shortestSide * 0.04,
           ),
         ),
         const SizedBox(height: 5.0),
         Container(
-          height: deviceInfo.size.height * 0.02,
+          height: widget.deviceInfo.size.height * 0.02,
           decoration: BoxDecoration(
             color: AppColors.primaryColor.withOpacity(0.4),
             borderRadius: BorderRadius.circular(4.0),
@@ -103,7 +141,7 @@ class Skills extends StatelessWidget {
           child: Stack(
             children: [
               FractionallySizedBox(
-                widthFactor: skill.value,
+                widthFactor: _animationController.value,
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.actionColor,
