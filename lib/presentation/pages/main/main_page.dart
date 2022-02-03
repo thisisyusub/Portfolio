@@ -7,16 +7,15 @@ import '../../utils/smooth_scroll.dart';
 import '../sections/about.dart';
 import '../sections/contact.dart';
 import '../sections/home.dart';
-import 'widgets/menu_bar.dart';
 import 'widgets/top_bar.dart';
 
 class MainPage extends StatefulWidget {
   @override
-  _MainPageState createState() => _MainPageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  final controller = AutoScrollController();
+  final _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,75 +32,29 @@ class _MainPageState extends State<MainPage> {
               ),
               child: TopBar(),
             ),
-            ResponsiveX(
-              builder: (_, deviceInfo) {
-                final isMobile = deviceInfo.deviceType == DeviceType.mobile;
-
-                final child = CupertinoScrollbar(
-                  controller: controller,
-                  child: ListView(
-                    controller: controller,
-                    scrollDirection: Axis.vertical,
-                    padding: const EdgeInsets.only(
-                      left: 16.0,
-                      right: 16.0,
-                      top: 16.0,
-                    ),
-                    physics: isMobile
-                        ? AlwaysScrollableScrollPhysics()
-                        : NeverScrollableScrollPhysics(),
-                    children: [
-                      AutoScrollTag(
-                        key: ValueKey(0),
-                        controller: controller,
-                        index: 0,
-                        child: Home(),
-                      ),
-                      AutoScrollTag(
-                        key: ValueKey(1),
-                        controller: controller,
-                        index: 1,
-                        child: About(),
-                      ),
-                      AutoScrollTag(
-                        key: ValueKey(2),
-                        controller: controller,
-                        index: 2,
-                        child: Contact(),
-                      ),
-                    ],
+            Expanded(
+              child: CupertinoScrollbar(
+                controller: _controller,
+                child: ListView(
+                  controller: _controller,
+                  scrollDirection: Axis.vertical,
+                  padding: const EdgeInsets.only(
+                    left: 16.0,
+                    right: 16.0,
+                    top: 16.0,
                   ),
-                );
-
-                return Expanded(
-                  child: isMobile
-                      ? child
-                      : SmoothScroll(
-                          controller: controller,
-                          child: child,
-                        ),
-                );
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                top: 16.0,
+                  physics: AlwaysScrollableScrollPhysics(),
+                  children: [
+                    Home(),
+                    About(),
+                    Contact(),
+                  ],
+                ),
               ),
-              child: MenuBar(animateToSection),
             ),
           ],
         ),
       ),
-    );
-  }
-
-  void animateToSection(int index) {
-    controller.scrollToIndex(
-      index,
-      preferPosition: AutoScrollPosition.begin,
-      duration: Duration(milliseconds: 800),
     );
   }
 }

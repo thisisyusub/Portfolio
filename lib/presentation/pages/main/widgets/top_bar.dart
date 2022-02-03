@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -27,7 +26,7 @@ class TopBar extends StatelessWidget {
       index: 0,
       title: 'Github',
       icon: FontAwesomeIcons.github,
-      url: 'https://github.com/yusubx',
+      url: 'https://github.com/thisisyusub',
     ),
     Social(
       index: 1,
