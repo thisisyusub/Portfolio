@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../responsive_x.dart';
+import '../sections/about_me.dart';
+import '../sections/home.dart';
+import '../sections/skills.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -24,117 +27,17 @@ class _MainPageState extends State<MainPage> {
                 scrollDirection: Axis.vertical,
                 physics: BouncingScrollPhysics(),
                 children: [
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-                  ListTile(
-                    title: Text('Test'),
-                  ),
-
-                  // Home(onTap: () {
-                  //   _controller.animateTo(
-                  //     deviceInfo.size.height,
-                  //     duration: Duration(milliseconds: 400),
-                  //     curve: Curves.linear,
-                  //   );
-                  // }),
-                  // Divider(height: 0),
-                  // AboutMe(),
-                  // Divider(height: 0),
-                  // Skills(),
+                  Home(onTap: () {
+                    _controller.animateTo(
+                      deviceInfo.size.height,
+                      duration: Duration(milliseconds: 400),
+                      curve: Curves.linear,
+                    );
+                  }),
+                  Divider(height: 0),
+                  AboutMe(),
+                  Divider(height: 0),
+                  Skills(),
                 ],
               ),
             ),
