@@ -1,9 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../responsive_x.dart';
 import '../main/widgets/avatar.dart';
 
 class Home extends StatelessWidget {
+  const Home({this.onTap});
+
+  final VoidCallback? onTap;
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveX(
@@ -22,6 +27,7 @@ class Home extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Spacer(),
               Avatar(),
               Text(
                 'Mobile Development Engineer\nFlutter Enthusiast',
@@ -47,6 +53,19 @@ class Home extends StatelessWidget {
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: onTap,
+                      icon: Icon(CupertinoIcons.chevron_down_circle),
                     ),
                   ],
                 ),

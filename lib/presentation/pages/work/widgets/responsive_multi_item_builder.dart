@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 import '../../../responsive_x.dart';
-import '../../../utils/smooth_scroll.dart';
 
 class ResponsiveMultiChildBuilder extends StatelessWidget {
   final IndexedWidgetBuilder itemBuilder;
@@ -66,16 +64,6 @@ class ResponsiveMultiChildBuilder extends StatelessWidget {
           ),
           itemBuilder: itemBuilder,
           itemCount: itemCount,
-        );
-      }
-
-      if (!isMobile) {
-        multiElementBuilder = SmoothScroll(
-          controller: _controller,
-          child: CupertinoScrollbar(
-            controller: _controller,
-            child: multiElementBuilder,
-          ),
         );
       }
 
