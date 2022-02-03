@@ -25,7 +25,6 @@ class _MainPageState extends State<MainPage> {
               child: ListView(
                 controller: _controller,
                 scrollDirection: Axis.vertical,
-                physics: BouncingScrollPhysics(),
                 children: [
                   Home(onTap: () {
                     _controller.animateTo(
