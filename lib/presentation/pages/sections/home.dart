@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/presentation/pages/main/widgets/avatar.dart';
 
 import '../../responsive_x.dart';
 
@@ -15,42 +16,43 @@ class Home extends StatelessWidget {
           fontSize = 32.0;
         }
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: deviceInfo.size.height * 0.20),
-            Text(
-              'Mobile Development Engineer\nFlutter Enthusiast',
-              style: Theme.of(context)
-                  .textTheme
-                  .headline2
-                  ?.copyWith(fontSize: fontSize),
-            ),
-            const SizedBox(height: 30),
-            RichText(
-              text: TextSpan(
-                text: 'I am Flutter Developer with experience '
-                    'more than a year & Founder of ',
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                      color: Theme.of(context).primaryColor,
-                    ),
-                children: [
-                  TextSpan(
-                    text: 'Azerbaijan Flutter Users Community.',
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ],
+        return SizedBox(
+          height: deviceInfo.size.height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Avatar(),
+              Text(
+                'Mobile Development Engineer\nFlutter Enthusiast',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline2
+                    ?.copyWith(fontSize: fontSize),
+                textAlign: TextAlign.center,
               ),
-            ),
-            // Text(
-            //   'I am Flutter Developer with experience more than a year & '
-            //   'Founder of Azerbaijan Flutter Users Community.',
-            // ),
-            const SizedBox(height: 500),
-          ],
+              SizedBox(height: deviceInfo.size.height * 0.02),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: 'I am Flutter Developer with 2+ years '
+                      'experience & Founder of ',
+                  style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                  children: [
+                    TextSpan(
+                      text: 'Azerbaijan Flutter Users Community.',
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         );
       },
     );

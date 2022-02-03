@@ -21,38 +21,23 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                top: 16.0,
-              ),
-              child: TopBar(),
+        child: CupertinoScrollbar(
+          controller: _controller,
+          child: ListView(
+            controller: _controller,
+            scrollDirection: Axis.vertical,
+            padding: const EdgeInsets.only(
+              left: 16.0,
+              right: 16.0,
+              top: 16.0,
             ),
-            Expanded(
-              child: CupertinoScrollbar(
-                controller: _controller,
-                child: ListView(
-                  controller: _controller,
-                  scrollDirection: Axis.vertical,
-                  padding: const EdgeInsets.only(
-                    left: 16.0,
-                    right: 16.0,
-                    top: 16.0,
-                  ),
-                  physics: AlwaysScrollableScrollPhysics(),
-                  children: [
-                    Home(),
-                    About(),
-                    Contact(),
-                  ],
-                ),
-              ),
-            ),
-          ],
+            physics: AlwaysScrollableScrollPhysics(),
+            children: [
+              Home(),
+              About(),
+              Contact(),
+            ],
+          ),
         ),
       ),
     );
