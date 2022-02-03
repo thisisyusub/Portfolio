@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../responsive_x.dart';
 import '../sections/about_me.dart';
 import '../sections/home.dart';
+import '../sections/skills.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -32,7 +33,10 @@ class _MainPageState extends State<MainPage> {
                       curve: Curves.linear,
                     );
                   }),
+                  Divider(height: 0),
                   AboutMe(),
+                  Divider(height: 0),
+                  Skills(),
                 ],
               ),
             ),

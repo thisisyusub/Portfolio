@@ -16,16 +16,6 @@ class AboutMe extends StatelessWidget {
         return Container(
           margin: const EdgeInsets.all(16.0),
           padding: const EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0.0, 2.0),
-                blurRadius: 4.0,
-                color: AppColors.primaryColor,
-              ),
-            ],
-          ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,44 +75,6 @@ class AboutMe extends StatelessWidget {
         );
       },
     );
-  }
-
-  Widget _buildSkills() {
-    return Wrap(
-      spacing: 10,
-      runSpacing: 10,
-      children: [
-        _buildChip('Flutter'),
-        _buildChip('Dart'),
-        _buildChip('Algorithms'),
-        _buildChip('Data Structures'),
-        _buildChip('Design Patterns'),
-        _buildChip('Clean Architecture'),
-        _buildChip('TDD'),
-        _buildChip('Unit Testing'),
-        _buildChip('Firebase'),
-        _buildChip('State Management'),
-        _buildChip('Sentry'),
-        _buildChip('Git'),
-        _buildChip('CI'),
-        _buildChip('Github Actions'),
-        _buildChip('Bloc'),
-        _buildChip('Provider'),
-        _buildChip('Riverpod'),
-        _buildChip('RxDart'),
-        _buildChip('Node.JS'),
-      ],
-    );
-  }
-
-  Widget _buildChip(String title) {
-    return RawChip(
-        label: Text(
-      title,
-      style: TextStyle(
-        fontSize: 18,
-      ),
-    ));
   }
 
   Text _buildTitle(BuildContext context, String title) {
