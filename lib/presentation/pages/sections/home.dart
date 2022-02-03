@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../responsive_x.dart';
 import '../main/widgets/avatar.dart';
+import '../main/widgets/social_button.dart';
 
 class Home extends StatelessWidget {
   const Home({this.onTap});
@@ -13,14 +15,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveX(
       builder: (context, deviceInfo) {
-        double fontSize = 56.0;
-
-        if (deviceInfo.deviceType == DeviceType.tablet) {
-          fontSize = 48.0;
-        } else if (deviceInfo.deviceType == DeviceType.mobile) {
-          fontSize = 32.0;
-        }
-
         return SizedBox(
           height: deviceInfo.size.height,
           child: Column(
@@ -28,13 +22,19 @@ class Home extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(),
-              Avatar(),
+              Avatar(
+                Size(
+                  deviceInfo.size.width * 0.1,
+                  deviceInfo.size.width * 0.1,
+                ),
+              ),
+              SizedBox(height: deviceInfo.size.height * 0.04),
               Text(
-                'Mobile Development Engineer\nFlutter Enthusiast',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline2
-                    ?.copyWith(fontSize: fontSize),
+                'Mobile Development Engineer',
+                style: Theme.of(context).textTheme.headline2?.copyWith(
+                      fontSize: deviceInfo.size.shortestSide * 0.05,
+                      fontWeight: FontWeight.bold,
+                    ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: deviceInfo.size.height * 0.02),
@@ -42,20 +42,34 @@ class Home extends StatelessWidget {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   text: 'I am Flutter Developer with 2+ years '
-                      'experience & Founder of ',
+                      'experience\nFounder of ',
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                        fontSize: deviceInfo.size.shortestSide * 0.03,
                         color: Theme.of(context).primaryColor,
                       ),
                   children: [
                     TextSpan(
                       text: 'Azerbaijan Flutter Users Community.',
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            fontSize: deviceInfo.size.shortestSide * 0.03,
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                   ],
                 ),
+              ),
+              SizedBox(height: deviceInfo.size.height * 0.05),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialButton(FontAwesomeIcons.github, ''),
+                  SocialButton(FontAwesomeIcons.stackOverflow, ''),
+                  SocialButton(FontAwesomeIcons.facebook, ''),
+                  SocialButton(FontAwesomeIcons.linkedinIn, ''),
+                  SocialButton(FontAwesomeIcons.mediumM, ''),
+                  SocialButton(FontAwesomeIcons.youtube, ''),
+                ],
               ),
               const Spacer(),
               Padding(

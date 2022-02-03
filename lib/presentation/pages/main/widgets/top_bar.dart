@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../responsive_x.dart';
-import 'avatar.dart';
 import 'social_button.dart';
 
 class Social {
@@ -68,7 +67,6 @@ class TopBar extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Avatar(),
             const SizedBox(width: 10),
             ResponsiveX(
               builder: (context, deviceInfo) {

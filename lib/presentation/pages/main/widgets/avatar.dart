@@ -1,23 +1,36 @@
 import 'package:flutter/material.dart';
 
+import '../../../values/colors.dart';
+
 class Avatar extends StatelessWidget {
+  const Avatar(this.size);
+
+  final Size size;
+
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 56,
-          height: 56,
+          width: size.width,
+          height: size.height,
           decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage('lib/assets/avatar.jpg'),
-              fit: BoxFit.cover,
+            border: Border.all(
+              width: 4.0,
+              color: Colors.white,
             ),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0.0, 2.0),
+                blurRadius: 4.0,
+                color: AppColors.primaryColor,
+              ),
+            ],
           ),
+          child: Image.asset('lib/assets/avatar.jpg'),
         ),
-        const SizedBox(width: 16),
+        SizedBox(height: size.height * 0.05),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,

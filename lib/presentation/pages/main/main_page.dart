@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../responsive_x.dart';
-import '../sections/about.dart';
-import '../sections/contact.dart';
+import '../sections/about_me.dart';
 import '../sections/home.dart';
 
 class MainPage extends StatefulWidget {
@@ -32,11 +31,10 @@ class _MainPageState extends State<MainPage> {
                     _controller.animateTo(
                       deviceInfo.size.height,
                       duration: Duration(milliseconds: 400),
-                      curve: Curves.decelerate,
+                      curve: Curves.linear,
                     );
                   }),
-                  About(),
-                  Contact(),
+                  AboutMe(),
                 ],
               ),
             ),
