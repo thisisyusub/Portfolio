@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'colors.dart';
 
-final _fontStyle = GoogleFonts.dmSans(
+final _fontStyle = GoogleFonts.abel(
   color: Colors.black,
   fontWeight: FontWeight.w400,
 );
@@ -16,6 +16,7 @@ class AppThemes {
     focusColor: AppColors.actionColor,
     backgroundColor: Colors.white,
     scaffoldBackgroundColor: Colors.white,
+    fontFamily: _fontStyle.fontFamily,
     textTheme: TextTheme(
       headline2: _fontStyle.copyWith(
         fontSize: 56.0,

@@ -28,7 +28,10 @@ class Avatar extends StatelessWidget {
               ),
             ],
           ),
-          child: Image.asset('lib/assets/avatar.jpg'),
+          child: Image.asset(
+            'lib/assets/avatar.jpg',
+            fit: BoxFit.cover,
+          ),
         ),
         SizedBox(height: size.height * 0.05),
         Column(
@@ -37,7 +40,7 @@ class Avatar extends StatelessWidget {
           children: [
             Text(
               'Kanan Yusubov',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.headline5,
             ),
           ],
         ),

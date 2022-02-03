@@ -24,15 +24,15 @@ class Home extends StatelessWidget {
               const Spacer(),
               Avatar(
                 Size(
-                  deviceInfo.size.width * 0.1,
-                  deviceInfo.size.width * 0.1,
+                  deviceInfo.size.width * 0.18,
+                  deviceInfo.size.width * 0.18,
                 ),
               ),
               SizedBox(height: deviceInfo.size.height * 0.04),
               Text(
                 'Mobile Development Engineer',
                 style: Theme.of(context).textTheme.headline2?.copyWith(
-                      fontSize: deviceInfo.size.shortestSide * 0.05,
+                      fontSize: deviceInfo.size.shortestSide * 0.055,
                       fontWeight: FontWeight.bold,
                     ),
                 textAlign: TextAlign.center,
@@ -44,14 +44,14 @@ class Home extends StatelessWidget {
                   text: 'I am Flutter Developer with 2+ years '
                       'experience\nFounder of ',
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                        fontSize: deviceInfo.size.shortestSide * 0.03,
+                        fontSize: deviceInfo.size.shortestSide * 0.035,
                         color: Theme.of(context).primaryColor,
                       ),
                   children: [
                     TextSpan(
                       text: 'Azerbaijan Flutter Users Community.',
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                            fontSize: deviceInfo.size.shortestSide * 0.03,
+                            fontSize: deviceInfo.size.shortestSide * 0.035,
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
@@ -63,12 +63,30 @@ class Home extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SocialButton(FontAwesomeIcons.github, ''),
-                  SocialButton(FontAwesomeIcons.stackOverflow, ''),
-                  SocialButton(FontAwesomeIcons.facebook, ''),
-                  SocialButton(FontAwesomeIcons.linkedinIn, ''),
-                  SocialButton(FontAwesomeIcons.mediumM, ''),
-                  SocialButton(FontAwesomeIcons.youtube, ''),
+                  SocialButton(
+                    FontAwesomeIcons.github,
+                    'https://github.com/thisisyusub',
+                  ),
+                  SocialButton(
+                    FontAwesomeIcons.stackOverflow,
+                    'https://stackoverflow.com/users/10996870/thisisyusub',
+                  ),
+                  SocialButton(
+                    FontAwesomeIcons.facebook,
+                    'https://www.facebook.com/kanan.yusub',
+                  ),
+                  SocialButton(
+                    FontAwesomeIcons.linkedinIn,
+                    'https://www.linkedin.com/in/kananyusubov/',
+                  ),
+                  SocialButton(
+                    FontAwesomeIcons.mediumM,
+                    'https://thisisyusub.medium.com/',
+                  ),
+                  SocialButton(
+                    FontAwesomeIcons.youtube,
+                    'https://www.youtube.com/c/KenanYusubov/',
+                  ),
                 ],
               ),
               const Spacer(),

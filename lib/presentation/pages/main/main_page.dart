@@ -11,7 +11,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final _controller = PageController();
+  final _controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,9 @@ class _MainPageState extends State<MainPage> {
           return SafeArea(
             child: CupertinoScrollbar(
               controller: _controller,
-              child: PageView(
+              child: ListView(
                 controller: _controller,
                 scrollDirection: Axis.vertical,
-                allowImplicitScrolling: true,
-                pageSnapping: false,
                 children: [
                   Home(onTap: () {
                     _controller.animateTo(
