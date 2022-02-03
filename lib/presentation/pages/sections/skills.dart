@@ -89,7 +89,7 @@ class Skills extends StatelessWidget {
         Text(
           skill.title,
           style: TextStyle(
-            fontSize: deviceInfo.size.shortestSide * 0.03,
+            fontSize: deviceInfo.size.shortestSide * 0.04,
           ),
         ),
         const SizedBox(height: 5.0),

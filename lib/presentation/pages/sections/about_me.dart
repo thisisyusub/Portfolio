@@ -34,7 +34,7 @@ class AboutMe extends StatelessWidget {
                   Text(
                     content,
                     style: TextStyle(
-                      fontSize: deviceInfo.size.shortestSide * 0.03,
+                      fontSize: deviceInfo.size.shortestSide * 0.035,
                     ),
                   ),
                   const SizedBox(height: 15),
@@ -52,16 +52,19 @@ class AboutMe extends StatelessWidget {
                   const SizedBox(height: 15),
                   _buildTitle(context, 'Personal Info'),
                   _buildAboutItem(deviceInfo, 'Age', '23'),
+                  const SizedBox(height: 5),
                   _buildAboutItem(
                     deviceInfo,
                     'Email',
                     'kanan.yusub@gmail.com',
                   ),
+                  const SizedBox(height: 5),
                   _buildAboutItem(
                     deviceInfo,
                     'Phone',
                     '+994 50 804 04 58',
                   ),
+                  const SizedBox(height: 5),
                   _buildAboutItem(
                     deviceInfo,
                     'Address',
@@ -97,14 +100,14 @@ class AboutMe extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            fontSize: deviceInfo.size.shortestSide * 0.03,
+            fontSize: deviceInfo.size.shortestSide * 0.035,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           subtitle,
           style: TextStyle(
-            fontSize: deviceInfo.size.shortestSide * 0.03,
+            fontSize: deviceInfo.size.shortestSide * 0.035,
           ),
         ),
       ],
@@ -122,7 +125,7 @@ class AboutMe extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              fontSize: deviceInfo.size.shortestSide * 0.03,
+              fontSize: deviceInfo.size.shortestSide * 0.035,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -131,7 +134,7 @@ class AboutMe extends StatelessWidget {
           child: Text(
             value,
             style: TextStyle(
-              fontSize: deviceInfo.size.shortestSide * 0.03,
+              fontSize: deviceInfo.size.shortestSide * 0.035,
             ),
           ),
         ),

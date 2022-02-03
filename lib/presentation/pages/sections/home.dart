@@ -24,15 +24,15 @@ class Home extends StatelessWidget {
               const Spacer(),
               Avatar(
                 Size(
-                  deviceInfo.size.width * 0.18,
-                  deviceInfo.size.width * 0.18,
+                  deviceInfo.size.shortestSide * 0.30,
+                  deviceInfo.size.shortestSide * 0.30,
                 ),
               ),
               SizedBox(height: deviceInfo.size.height * 0.04),
               Text(
                 'Mobile Development Engineer',
                 style: Theme.of(context).textTheme.headline2?.copyWith(
-                      fontSize: deviceInfo.size.shortestSide * 0.055,
+                      fontSize: deviceInfo.size.shortestSide * 0.08,
                       fontWeight: FontWeight.bold,
                     ),
                 textAlign: TextAlign.center,
@@ -44,14 +44,14 @@ class Home extends StatelessWidget {
                   text: 'I am Flutter Developer with 2+ years '
                       'experience\nFounder of ',
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                        fontSize: deviceInfo.size.shortestSide * 0.035,
+                        fontSize: deviceInfo.size.shortestSide * 0.04,
                         color: Theme.of(context).primaryColor,
                       ),
                   children: [
                     TextSpan(
                       text: 'Azerbaijan Flutter Users Community.',
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                            fontSize: deviceInfo.size.shortestSide * 0.035,
+                            fontSize: deviceInfo.size.shortestSide * 0.04,
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
